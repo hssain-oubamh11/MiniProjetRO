@@ -6,8 +6,8 @@ class Batiment:
     def __init__(self):
         self.batiment=nx.DiGraph()  #Graphe oriente vide
         
-    def ajouter_noeud(self,nom,type_noeud,capacite):
-        newNoeudAttribut={"type": type_noeud, "capacite":capacite,"etat": EtatNoeud.LIBRE , "niveau_fumee":0.0, "position":None}
+    def ajouter_noeud(self,nom,type_noeud,capacite):    #TODO: quand agent.py sera prêt mettre nb_personnes dans les parametre
+        newNoeudAttribut={"type": type_noeud, "capacite":capacite,"etat": EtatNoeud.LIBRE , "niveau_fumee":0.0, "position":None,"nb_personnes":0}
         self.batiment.add_node(nom,**newNoeudAttribut)
 
     def ajouter_arc(self,depart,arrivee,capacite,cout,longueur):
@@ -70,10 +70,15 @@ class Batiment:
        return self.batiment.edges[depart, arrivee]["cout"]
     
     def get_arcs(self):
-       return self.batiment.edges(data=True)
+       return self.batiment.edges()
     
     def get_noeuds(self):
        return self.batiment.nodes(data=True)
+    
+    def getattributs_noeud(self, nom):
+        return self.batiment.nodes[nom]
+    def getattributs_arc(self,depart,arrivee):
+        return self.batiment.edges[depart,arrivee]
 
 
 def construire_batiment_exemple():
