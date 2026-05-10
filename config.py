@@ -17,6 +17,12 @@ class EtatArc(Enum):
     RALENTI ="ralenti"
     BLOQUE = "bloque"
 
+class TypeEvenement(Enum):
+    INCENDIE="incendie"
+    FUMEE="fumee"
+    OBSTRUCTION="obstruction"
+    ALERTE_PMR="alerte_pmr"
+    
 SEUIL_ENFUME=0.4
 SEUIL_BLOQUE=0.8
 
