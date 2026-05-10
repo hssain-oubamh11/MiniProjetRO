@@ -76,7 +76,30 @@ class Batiment:
        return self.batiment.nodes(data=True)
 
 
+def construire_batiment_exemple():
+   bat = Batiment()
 
-         
+   bat.ajouter_salle("Salle_A", 30)
+   bat.ajouter_salle("Salle_B", 20)
+
+   bat.ajouter_couloir("Couloir_1", 50)
+
+   bat.ajouter_escalier("Escalier", 40)
+
+   bat.ajouter_sortie("Sortie_1", 100)
+   bat.ajouter_sortie("Sortie_2", 80)
+
+
+
+   bat.ajouter_arc("Salle_A", "Couloir_1", 20, 5, 10)
+
+   bat.ajouter_arc("Salle_B", "Couloir_1", 15, 4, 8)
+
+   bat.ajouter_arc("Couloir_1", "Escalier", 30, 3, 12)
+
+   bat.ajouter_arc("Escalier", "Sortie_1", 40, 2, 6)
+
+   bat.ajouter_arc("Salle_B", "Sortie_2", 10, 7, 15)
+          
              
     
